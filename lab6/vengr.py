@@ -85,11 +85,13 @@ def graphInit():
     file.close()
     return graph
 
-def outputGraph(answer):
+def outputGraph(answer, graph):
     if len(sys.argv)!=1:
         file=open('output for '+sys.argv[1], 'w')
     else:
         file=open('output.txt', 'w')
+    for i in range(len(graph)):
+        file.write(str(graph[i])+'\n')
     for i in range(len(answer)):
         file.write(str(answer[i])+'\n')
     file.close()
@@ -102,7 +104,7 @@ def main():
     end_time = time.perf_counter()
     print(sumA)
     print("algorythm: "+"{:g} ms".format((end_time - start_time)*1000))
-    outputGraph(answer)
+    outputGraph(answer, graph)
     
 
 if __name__ == "__main__":
